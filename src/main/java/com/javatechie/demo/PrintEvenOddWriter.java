@@ -25,12 +25,6 @@ public class PrintEvenOddWriter {
         shutdownExecutors(executorServiceOdd, executorServiceEven);
         ;
     }
-
-    private static void shutdownExecutors(ExecutorService executorServiceOdd, ExecutorService executorServiceEven) {
-        executorServiceOdd.shutdown();
-        executorServiceEven.shutdown();
-    }
-
     private static void printOddNumber() {
         IntStream.rangeClosed(1, 10)
                 .forEach(element -> {
@@ -44,7 +38,6 @@ public class PrintEvenOddWriter {
                     }
                 });
     }
-
     /**
      * prints the even number
      */
@@ -61,5 +54,10 @@ public class PrintEvenOddWriter {
                         }
                     }
                 });
+    }
+
+    private static void shutdownExecutors(ExecutorService executorServiceOdd, ExecutorService executorServiceEven) {
+        executorServiceOdd.shutdown();
+        executorServiceEven.shutdown();
     }
 }
