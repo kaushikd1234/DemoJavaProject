@@ -21,6 +21,14 @@ public class PrintEvenOddWriter {
         CompletableFuture.runAsync(() -> printOddNumber(), executorServiceOdd)
                 .thenRunAsync(() -> printEvenNumber(), executorServiceEven)
                 .join();
+
+        shutdownExecutors(executorServiceOdd, executorServiceEven);
+        ;
+    }
+
+    private static void shutdownExecutors(ExecutorService executorServiceOdd, ExecutorService executorServiceEven) {
+        executorServiceOdd.shutdown();
+        executorServiceEven.shutdown();
     }
 
     private static void printOddNumber() {
@@ -53,7 +61,5 @@ public class PrintEvenOddWriter {
                         }
                     }
                 });
-
-
     }
 }
