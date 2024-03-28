@@ -15,7 +15,6 @@ public class FlatMapDemoMain {
         // convert that to array of integers
 
         List<int[]> listOfIntegers = Arrays.asList(twoDimensionalArray);
-
         List<String> integersList = listOfIntegers.stream().flatMap(element -> Arrays.stream(element).mapToObj(Integer::toString))
                 .collect(Collectors.toList());
 
