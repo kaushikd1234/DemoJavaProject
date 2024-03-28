@@ -20,5 +20,6 @@ public class SortingDemoMain {
                 .collect(Collectors.toList());
 
         System.out.println(sortedList);
+
     }
 }
